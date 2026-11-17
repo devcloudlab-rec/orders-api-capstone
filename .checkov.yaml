@@ -1,0 +1,14 @@
+directory:
+  - infra
+framework:
+  - terraform
+skip-download: true
+quiet: true
+compact: true
+# Org-level controls handled outside this repo.
+skip-check:
+  - CKV_AWS_18
+  - CKV_AWS_144
+  - CKV_AWS_145
+  - CKV2_AWS_61
+  - CKV2_AWS_62

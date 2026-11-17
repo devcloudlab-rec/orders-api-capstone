@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pytest *)",
+      "Bash(uv sync *)",
+      "Bash(uv run pytest *)",
+      "Bash(pre-commit run *)",
+      "Bash(conftest test *)",
+      "Bash(git diff *)",
+      "Bash(git status *)"
+    ],
+    "ask": [
+      "Bash(git commit *)",
+      "Edit(pyproject.toml)",
+      "Edit(uv.lock)"
+    ],
+    "deny": [
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(nc *)",
+      "Bash(git push *)",
+      "Bash(terraform apply *)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(~/.aws/**)",
+      "Read(**/*.pem)",
+      "Edit(.github/**)",
+      "Edit(.claude/**)",
+      "Edit(.devcontainer/**)"
+    ]
+  }
+}

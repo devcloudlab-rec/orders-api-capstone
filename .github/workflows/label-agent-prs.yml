@@ -1,0 +1,32 @@
+name: label-agent-prs
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label AI-authored pull requests
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const login = (pr.user && pr.user.login) || "";
+            const head = (pr.head && pr.head.ref) || "";
+            const isAgent = login.endsWith("[bot]") || head.startsWith("ai/");
+            if (!isAgent) {
+              core.info(`Skipping label: user=${login} branch=${head}`);
+              return;
+            }
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              labels: ["AI authored"],
+            });

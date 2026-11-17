@@ -10,3 +10,4 @@
 /.gitleaks.toml         @abohmeed
 /pyproject.toml         @abohmeed
 /uv.lock                @abohmeed
+/governance/            @abohmeed

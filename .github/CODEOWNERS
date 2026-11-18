@@ -1,0 +1,12 @@
+*                       @abohmeed
+/.github/               @abohmeed
+/.claude/               @abohmeed
+/.devcontainer/         @abohmeed
+/sandbox/               @abohmeed
+/infra/                 @abohmeed
+/policy/                @abohmeed
+/.semgrep/              @abohmeed
+/.pre-commit-config.yaml @abohmeed
+/.gitleaks.toml         @abohmeed
+/pyproject.toml         @abohmeed
+/uv.lock                @abohmeed

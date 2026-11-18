@@ -1,0 +1,10 @@
+title = "orders-api gitleaks config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "aws-access-key-id-any"
+description = "AWS access key id, including test-format keys"
+regex = '''AKIA[0-9A-Z]{16}'''
+tags = ["key", "AWS"]

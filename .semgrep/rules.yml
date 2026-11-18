@@ -1,0 +1,19 @@
+rules:
+  - id: sql-built-with-fstring
+    languages: [python]
+    severity: ERROR
+    message: Build SQL with placeholders and a parameter tuple, not an f-string.
+    pattern: $CONN.execute(f"...", ...)
+  - id: sql-built-with-concat-or-format
+    languages: [python]
+    severity: ERROR
+    message: Build SQL with placeholders and a parameter tuple.
+    pattern-either:
+      - pattern: $CONN.execute("..." % ..., ...)
+      - pattern: $CONN.execute("...".format(...), ...)
+      - pattern: $CONN.execute("..." + ..., ...)
+  - id: subprocess-shell-true
+    languages: [python]
+    severity: ERROR
+    message: Do not run commands through a shell. Pass an argument list.
+    pattern: subprocess.$FUNC(..., shell=True, ...)
